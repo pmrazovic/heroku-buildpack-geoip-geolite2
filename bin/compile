@@ -24,8 +24,8 @@ mkdir -p "$GEOIP_CACHE_DIR"
 
 echo "       Downloading GeoLite2 City and Country data"
 
-wget -Nq -P "$GEOIP_CACHE_DIR" "https://geolite.maxmind.com/download/geoip/database/$GEOLITE2_CITY_TARBALL_FILENAME"
-wget -Nq -P "$GEOIP_CACHE_DIR" "https://geolite.maxmind.com/download/geoip/database/$GEOLITE2_COUNTRY_TARBALL_FILENAME"
+wget -Nq -O "$GEOIP_CACHE_DIR/$GEOLITE2_CITY_TARBALL_FILENAME" "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=JGFVKefrQz8dX3N0&suffix=tar.gz"
+wget -Nq -O "$GEOIP_CACHE_DIR/$GEOLITE2_COUNTRY_TARBALL_FILENAME" "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=JGFVKefrQz8dX3N0&suffix=tar.gz"
 
 tar -xvf "$GEOIP_CACHE_DIR/$GEOLITE2_CITY_TARBALL_FILENAME" --directory "$BUILD_DIST_SHARE_DIR" --no-anchored --strip-components=1 "$GEOLITE2_CITY_FILENAME"
 tar -xvf "$GEOIP_CACHE_DIR/$GEOLITE2_COUNTRY_TARBALL_FILENAME" --directory "$BUILD_DIST_SHARE_DIR" --no-anchored --strip-components=1 "$GEOLITE2_COUNTRY_FILENAME"
